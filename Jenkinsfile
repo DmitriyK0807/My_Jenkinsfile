@@ -4,7 +4,7 @@ pipeline {
         filename 'Dockerfile'
         registryUrl 'https://hub.docker.com/repository/docker/dmitriyk0807/my_web_page'
     }
-
+    }
     stages {
         stage('Build') {
             steps {
