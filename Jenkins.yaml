@@ -1,0 +1,27 @@
+multibranchPipelineJob('multibranch_pipeline2'){
+            branchSources {
+                branchSource {
+                    source {
+                        git {
+                            id = 'multibranch_pipeline2'
+                            remote('https://github.com/DmitriyK0807/Repo_For_Jenkins_Pipeline.git')
+                            credentialsId('creds-for-github')
+
+                            traits {
+                                gitBranchDiscovery()
+                                gitTagDiscovery()
+                            }
+                        }
+                    }
+                    strategy {
+                        defaultBranchPropertyStrategy {
+                            props {
+                                noTriggerBranchProperty()
+                            }
+                        }
+                    }
+                }
+            }
+            displayName('multibranch_pipeline2')
+            orphanedItemStrategy { discardOldItems { numToKeep(-1) } }
+        }
